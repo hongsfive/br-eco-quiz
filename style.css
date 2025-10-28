@@ -1,0 +1,187 @@
+/* Gmarket Sans 폰트 로드 */
+@import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+/* 기본 스타일 초기화 및 설정 */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 포스터의 짙은 녹색 배경 */
+    background-color: #004a43; 
+    /* 포스터의 노란/흰색 텍스트에 맞춰 기본 흰색 */
+    color: #FFFFFF;
+    /* 포스터와 유사한 Gmarket Sans 폰트 적용 */
+    font-family: 'GmarketSans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 중앙 정렬을 위한 컨테이너 */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 헤더 (포스터 상단 타이틀) */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h4 {
+    /* 포스터의 '지구를 지키는 시학교' 스타일 */
+    color: #FFFFE0; /* 약간 노란 흰색 */
+    font-weight: 500; /* Medium */
+    margin: 0;
+    font-size: 1.1em;
+}
+
+header h1 {
+    /* 포스터의 메인 타이틀 스타일 */
+    color: #FFD700; /* 쨍한 노란색 */
+    font-weight: 700; /* Bold */
+    font-size: 3em;
+    margin: 10px 0;
+    line-height: 1.2;
+}
+
+/* 퀴즈/정답 섹션 부제 */
+.subtitle {
+    text-align: center;
+    color: #FFFFE0;
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+/* 퀴즈/정답 섹션 제목 */
+main h2 {
+    text-align: center;
+    color: #FFFFE0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+/* 퀴즈/정답 카드 (포스터의 일정표 스타일) */
+.quiz-item, .answer-item {
+    background-color: rgba(0, 0, 0, 0.3); /* 반투명 검은색 배경 */
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 카드 내부 제목 */
+.quiz-item h3, .answer-item h3 {
+    color: #FFFFE0;
+    font-size: 1.6em;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* ---------------------------------- */
+/* 임베드 (SoundCloud & Vimeo)
+/* ---------------------------------- */
+
+/* SoundCloud 임베드 컨테이너 */
+.embed-soundcloud {
+    margin-bottom: 20px;
+}
+.embed-soundcloud iframe {
+    width: 100%;
+    height: 166px; /* SoundCloud 기본 높이 */
+    border: none;
+    border-radius: 8px;
+}
+
+/* Vimeo (16:9 반응형) 컨테이너 */
+.embed-vimeo {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 비율 (height/width * 100) */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #000;
+}
+.embed-vimeo iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 임시 플레이스홀더 스타일 (퍼가기 코드를 넣으면 사라짐) */
+.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 166px;
+    background: #333;
+    border-radius: 8px;
+    color: #aaa;
+}
+.placeholder.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1.2em;
+}
+
+
+/* ---------------------------------- */
+/* 퀴즈 페이지 입력란 (Input)
+/* ---------------------------------- */
+.quiz-item label {
+    display: block;
+    color: #FFFFE0;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+.quiz-item input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* 패딩 포함 크기 계산 */
+    font-family: 'GmarketSans', sans-serif;
+    font-weight: 500;
+}
+
+/* ---------------------------------- */
+/* 공통 버튼 (정답 확인 / 퀴즈로 가기)
+/* ---------------------------------- */
+.cta-button {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    background-color: #FFD700; /* 포스터의 쨍한 노란색 */
+    color: #004a43; /* 포스터의 짙은 녹색 (배경색) */
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.25em;
+    font-weight: 700; /* Bold */
+    border-radius: 10px;
+    margin-top: 40px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-sizing: border-box;
+}
+.cta-button:hover {
+    background-color: #FFFFE0; /* 더 밝은 노란색 */
+    transform: scale(1.02);
+}
+
+/* 모바일 화면 대응 */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+    main h2 {
+        font-size: 1.8em;
+    }
+}
