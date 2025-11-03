@@ -1,6 +1,6 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "보령소리퀴즈",
+  "short_name": "보령소리퀴즈즈",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
