@@ -195,6 +195,26 @@ main h2 {
     transform: scale(1.02);
 }
 
+/* YouTube 쇼츠 링크 버튼 */
+.youtube-link-button {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    background-color: #FF0000; /* YouTube 빨간색 */
+    color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 700;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-sizing: border-box;
+}
+.youtube-link-button:hover {
+    background-color: #CC0000; /* 더 어두운 빨간색 */
+    transform: scale(1.02);
+}
+
 /* 모바일 화면 대응 */
 @media (max-width: 600px) {
     header h1 {
