@@ -14,66 +14,40 @@
     <meta name="apple-mobile-web-app-title" content="소리퀴즈" />
     <link rel="manifest" href="/site.webmanifest" />
 </head>
-<body data-page="quiz">
+<body>
     <div class="app">
         <header class="hero">
-            <p class="hero-tag"># 소리로 만나는 생물다양성</p>
-            <h1 class="hero-title">야, 너도<br>들을 수 있어<em>!</em></h1>
-            <p class="hero-sub">지구를지키는시학교 · 보령에서 직접 녹음한 소리</p>
-            <svg class="hills" viewBox="0 0 400 110" aria-hidden="true">
-                <g fill="#F28B4B"><circle cx="30" cy="70" r="48"/><circle cx="140" cy="58" r="52"/><circle cx="262" cy="66" r="50"/><circle cx="380" cy="54" r="54"/></g>
-                <g fill="#F6C419"><circle cx="-10" cy="96" r="44"/><circle cx="95" cy="92" r="38"/><circle cx="330" cy="98" r="42"/></g>
-                <g fill="#D98760"><circle cx="205" cy="102" r="48"/><circle cx="410" cy="108" r="40"/></g>
-                <g fill="#E5574C"><circle cx="50" cy="128" r="48"/><circle cx="150" cy="132" r="44"/><circle cx="255" cy="128" r="48"/><circle cx="360" cy="132" r="44"/></g>
+            <h1 class="hero-title">야, 너도 들을 수 있어<em>!</em></h1>
+            <svg class="hills" viewBox="0 0 400 70" aria-hidden="true">
+                <g fill="#F28B4B"><circle cx="30" cy="50" r="40"/><circle cx="140" cy="40" r="44"/><circle cx="262" cy="46" r="42"/><circle cx="380" cy="36" r="46"/></g>
+                <g fill="#F6C419"><circle cx="-10" cy="70" r="36"/><circle cx="95" cy="66" r="30"/><circle cx="330" cy="70" r="34"/></g>
+                <g fill="#D98760"><circle cx="205" cy="74" r="38"/><circle cx="410" cy="76" r="32"/></g>
             </svg>
         </header>
 
-        <main class="sheet">
-            <section class="card howto">
-                <span class="quiz-badge">QUIZ</span>
-                <p>다음의 소리를 듣고 소리를 묘사해 보세요.<br>
-                   이 소리는 어떤 동물의 소리일까요?<br>
-                   번호와 동물을 이어보세요.</p>
-            </section>
+        <main class="sheet board" id="board">
+            <ol class="spots" id="spots">
+                <noscript><li>소리를 들으려면 브라우저의 자바스크립트를 켜 주세요.</li></noscript>
+            </ol>
 
-            <section>
-                <h2 class="section-title">보기</h2>
-                <ul class="choices">
-                    <li><img src="img/ttaksae.jpg" alt=""><span>#딱새</span></li>
-                    <li><img src="img/baksae.jpg" alt=""><span>#박새</span></li>
-                    <li><img src="img/metbidulgi.jpg" alt=""><span>#멧비둘기</span></li>
-                    <li><img src="img/ososaek.jpg" alt=""><span>#오색<wbr>딱따구리</span></li>
-                    <li><img src="img/gorani.jpg" alt=""><span>#고라니</span></li>
-                </ul>
-            </section>
+            <button type="button" class="chip-button" id="shuffleBtn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                문제 섞기
+            </button>
 
-            <section>
-                <div class="section-head">
-                    <h2 class="section-title">소리 듣기</h2>
-                    <button type="button" class="chip-button" id="shuffleBtn">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
-                        문제 섞기
-                    </button>
-                </div>
-                <ol class="tracks" id="trackList">
-                    <noscript><li class="card">소리를 들으려면 브라우저의 자바스크립트를 켜 주세요.</li></noscript>
-                </ol>
-            </section>
-
-            <a href="answer.html" class="cta-button" data-answer-link>정답 확인하기</a>
-
-            <p class="credit">본 교재는 보령시농촌신활력플러스사업의 지원을 받아 제작되었습니다.</p>
+            <!-- 화면 읽기 프로그램용 안내 (화면에는 안 보임) -->
+            <p class="sr-only" id="status" aria-live="polite"></p>
         </main>
 
-        <nav class="tabbar" aria-label="메뉴">
-            <a href="index.html" class="tab is-active" aria-current="page">
+        <nav class="tabbar" aria-label="보기 전환">
+            <button type="button" class="tab is-active" data-mode="quiz" aria-pressed="true">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="5" height="7" rx="2"/><rect x="16" y="14" width="5" height="7" rx="2"/></svg>
                 <span>소리 퀴즈</span>
-            </a>
-            <a href="answer.html" class="tab" data-answer-link>
+            </button>
+            <button type="button" class="tab" data-mode="answer" aria-pressed="false">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
                 <span>정답 확인</span>
-            </a>
+            </button>
         </nav>
     </div>
     <script src="app.js"></script>
