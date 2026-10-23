@@ -24,3 +24,10 @@ yarn-error.log*
 .env.local
 .env.*.local
 
+
+# Tools
+.omc/
+.claude/
+.env
+__pycache__/
+node_modules/
