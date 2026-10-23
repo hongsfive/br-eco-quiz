@@ -30,10 +30,16 @@
                 <noscript><li>소리를 들으려면 브라우저의 자바스크립트를 켜 주세요.</li></noscript>
             </ol>
 
-            <button type="button" class="chip-button" id="shuffleBtn">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
-                문제 섞기
-            </button>
+            <div class="actions">
+                <button type="button" class="chip-button" id="shuffleBtn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                    문제 섞기
+                </button>
+                <button type="button" class="chip-button" id="resetBtn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6h10M10 12h10M10 18h10M4 5l1.5-1v5M3.5 14.5a1.5 1.5 0 1 1 2.5 1.2L3.5 19H6"/></svg>
+                    원래 순서대로
+                </button>
+            </div>
 
             <!-- 화면 읽기 프로그램용 안내 (화면에는 안 보임) -->
             <p class="sr-only" id="status" aria-live="polite"></p>

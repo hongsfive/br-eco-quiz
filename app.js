@@ -12,7 +12,7 @@ const IDS = Object.keys(ANIMALS).map(Number);
 const RING_LEN = 2 * Math.PI * 46; // 진행 고리 둘레 (viewBox 100, r=46)
 
 // ---------------------------------- //
-// 문제 순서 (랜덤) — 새로고침해도 유지되도록 탭에 저장
+// 문제 순서 — 새로고침해도 유지되도록 탭에 저장
 // ---------------------------------- //
 function parseOrder(text) {
     if (!text) return null;
@@ -53,24 +53,29 @@ const board = document.getElementById('board');
 const spots = document.getElementById('spots');
 const statusEl = document.getElementById('status');
 const shuffleBtn = document.getElementById('shuffleBtn');
+const resetBtn = document.getElementById('resetBtn');
 const tabs = document.querySelectorAll('[data-mode]');
 
-let order = readSavedOrder() || shuffledOrder();
+// 처음엔 원래 순서(1~5), 문제 섞기를 눌렀을 때만 바뀜
+let order = readSavedOrder() || [...IDS];
 saveOrder(order);
 render();
 setMode(location.hash === '#answer' ? 'answer' : 'quiz');
 
 tabs.forEach(tab => tab.addEventListener('click', () => setMode(tab.dataset.mode)));
 
-shuffleBtn.addEventListener('click', () => {
-    order = shuffledOrder();
+shuffleBtn.addEventListener('click', () => applyOrder(shuffledOrder()));
+resetBtn.addEventListener('click', () => applyOrder([...IDS]));
+
+function applyOrder(newOrder) {
+    order = newOrder;
     saveOrder(order);
     setMode('quiz');
     render();
     spots.classList.remove('is-shuffled');
     void spots.offsetWidth; // 애니메이션 다시 시작
     spots.classList.add('is-shuffled');
-});
+}
 
 function setMode(mode) {
     const isAnswer = mode === 'answer';

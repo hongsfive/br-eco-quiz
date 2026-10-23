@@ -131,8 +131,11 @@ button { font: inherit; color: inherit; cursor: pointer; }
     stroke-linejoin: round;
 }
 .chip-button:active { transform: scale(0.95); }
-.sheet > .chip-button {
-    align-self: center;
+/* 문제 섞기 · 원래 순서대로 */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
     margin-top: 8px;
 }
 
