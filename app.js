@@ -93,6 +93,7 @@ function render() {
         const animal = ANIMALS[id];
         return `
         <li class="spot" style="--i:${i}" data-no="${i + 1}" data-name="${animal.name}">
+            <div class="disc-wrap">
             <button type="button" class="disc">
                 <svg class="ring" viewBox="0 0 100 100" aria-hidden="true">
                     <circle class="ring-track" cx="50" cy="50" r="46"/>
@@ -111,6 +112,10 @@ function render() {
                 <span class="num" aria-hidden="true">${i + 1}</span>
                 <span class="state" aria-hidden="true"></span>
             </button>
+            <button type="button" class="rewind" aria-label="${i + 1}번 소리 처음으로">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4.5h4.5"/></svg>
+            </button>
+            </div>
             <p class="label">
                 <span class="label-blank" aria-hidden="true"></span>
                 <a class="label-name" href="${animal.video}" target="_blank" rel="noopener">#${animal.name}</a>
@@ -158,6 +163,12 @@ function setupSpot(spot) {
         } else {
             audio.pause();
         }
+    });
+
+    // 되감기: 처음으로 (재생 중이면 처음부터 계속 재생)
+    spot.querySelector('.rewind').addEventListener('click', () => {
+        audio.currentTime = 0;
+        drawRing();
     });
 
     audio.addEventListener('play', () => {
