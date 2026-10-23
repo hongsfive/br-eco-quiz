@@ -281,10 +281,10 @@ button { font: inherit; color: inherit; cursor: pointer; }
     place-items: center;
     width: calc(var(--d) * 0.38);
     height: calc(var(--d) * 0.38);
-    border: 4px solid var(--ring);
     border-radius: 50%;
-    background: #fff;
-    color: var(--ring);
+    background: var(--ring);
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     font-size: calc(var(--d) * 0.21);
     font-weight: 700;
     line-height: 1;
