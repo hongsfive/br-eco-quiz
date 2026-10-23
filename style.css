@@ -444,6 +444,46 @@ button { font: inherit; color: inherit; cursor: pointer; }
     }
 }
 
+/* ---------------------------------- */
+/* 태블릿 (가로·세로 모두 700px 이상) — 화면을 넉넉히 써서 큼직하게
+/* ---------------------------------- */
+@media (min-width: 700px) and (min-height: 700px) {
+    :root {
+        --tabbar-h: 84px;
+        --d: min(30vw, 16dvh, 300px);
+    }
+    .app,
+    .tabbar { max-width: none; }
+    .hero { padding: calc(28px + env(safe-area-inset-top)) 32px 56px; }
+    .hero-title { font-size: 2.6rem; }
+    .sheet {
+        margin-top: -28px;
+        padding: 28px 32px calc(var(--tabbar-h) + 16px + env(safe-area-inset-bottom));
+        border-radius: 36px 36px 0 0;
+    }
+    .label { min-height: 44px; }
+    .label-name { font-size: 1.4rem; }
+    .actions { gap: 14px; margin-top: 12px; }
+    .chip-button {
+        min-height: 54px;
+        padding: 0 22px;
+        gap: 8px;
+        font-size: 1.15rem;
+        border-width: 3px;
+    }
+    .chip-button svg { width: 24px; height: 24px; }
+    .tab { font-size: 1rem; gap: 6px; }
+    .tab svg { width: 32px; height: 32px; }
+}
+
+/* 태블릿 가로: 다섯 개를 한 줄로 (너비 기준으로 최대한 크게, 위아래 가운데) */
+@media (min-width: 700px) and (min-height: 700px) and (orientation: landscape) {
+    :root { --d: min(calc((100vw - 64px) / 6.4), 45dvh, 300px); }
+    .spots { align-content: center; }
+    .spot,
+    .spot:nth-child(3) { width: 20%; }
+}
+
 /* 키 작은 화면(아이폰 SE 등): 위쪽 여백을 줄여 한 화면 유지 */
 @media (max-height: 700px) {
     .hero { padding-top: calc(14px + env(safe-area-inset-top)); padding-bottom: 38px; }
