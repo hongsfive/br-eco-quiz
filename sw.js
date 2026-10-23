@@ -1,5 +1,5 @@
 // 오프라인 저장 — 파일을 바꾸면 VERSION을 올려야 새 파일로 교체된다
-const VERSION = 'v1';
+const VERSION = 'v2';
 const CACHE = `sound-quiz-${VERSION}`;
 
 const FILES = [
